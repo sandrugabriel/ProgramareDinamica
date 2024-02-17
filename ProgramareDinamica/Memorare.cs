@@ -233,7 +233,7 @@ namespace ProgramareDinamica
             return false;
         }
 
-        //PROBLEMA 6
+        //PROBLEMA 7
         public int countConstructRecurisv(string target, string[] wordBank)
         {
 
@@ -275,7 +275,7 @@ namespace ProgramareDinamica
             return ct;
         }
 
-        //PROBLEMA 7
+        //PROBLEMA 8
         public List<List<string>> allConstructRecurisv(string target, string[] wordBank)
         {
 

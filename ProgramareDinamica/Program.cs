@@ -156,9 +156,122 @@ internal class Program
 
     }
 
+    public static void Tabulare()
+    {
+
+        Tabulare tabulare = new Tabulare();
+
+        //ProgramareDinamica
+
+        //
+        //
+        //PROBLEMA 1
+        Console.WriteLine("PROBLEMA 1");
+        //ProgramareDinamica
+        Console.WriteLine(tabulare.fibDinamic(50));//O(n) time
+                                                   //O(n) space
+        Console.WriteLine("\n");
+        //
+        //
+
+        //
+        //
+        //PROBLEMA 2
+        Console.WriteLine("PROBLEMA 2");
+        //ProgramareDinamica
+        Console.WriteLine(tabulare.travelDinamic(18,18));
+        Console.WriteLine("\n");
+        //
+        //
+
+        //
+        //
+        //PROBLEMA 3
+        Console.WriteLine("PROBLEMA 3");
+        //ProgramareDinamica
+        Console.WriteLine(tabulare.canSumDinamic(7, [5,3,4]));
+        Console.WriteLine("\n");
+        //
+        //
+
+        //
+        //
+        //PROBLEMA 4
+        Console.WriteLine("PROBLEMA 4");
+        //ProgramareDinamica
+        foreach (var item in tabulare.howSumDinamic(7, [5,3,4]))
+        {
+            Console.Write(item + ",");
+        }
+        Console.WriteLine("\n");
+        //
+        //
+
+        //
+        //
+        //PROBLEMA 5
+        Console.WriteLine("PROBLEMA 5");
+        //ProgramareDinamica
+        foreach (var item in tabulare.bestSumDinamic(8, [2, 3, 5]))
+        {
+            Console.Write(item + ",");
+        }
+        Console.WriteLine("\n");
+        //
+        //
+
+        //
+        //
+        //PROBLEMA 6
+        Console.WriteLine("PROBLEMA 6");
+        //ProgramareDinamica
+        Console.Write(tabulare.canConstructDinamic("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", ["e",
+"ee",
+"eee",
+"eeee",
+"eeeee",
+"eeeeee"]));
+        Console.WriteLine("\n");
+        //
+        //
+
+        //
+        //
+        //PROBLEMA 7
+        Console.WriteLine("PROBLEMA 7");
+        //ProgramareDinamica
+        Console.Write(tabulare.countConstructDinamic("purple", ["purp","pur","le","purp"]));
+        Console.WriteLine("\n");
+        //
+        //
+
+        //
+        //
+        //PROBLEMA 8
+        Console.WriteLine("PROBLEMA 8");
+        //ProgramareDinamica
+
+        foreach (var item in tabulare.allConstructDinamic("abcdef", ["ab", "abc", "cd", "def", "abcd","ef","c"]))
+        {
+            foreach (var subitem in item)
+            {
+                Console.Write(subitem + ",");
+            }
+            Console.WriteLine("\n");
+        }
+        Console.WriteLine("\n");
+        //
+        //
+
+
+    }
+
     private static void Main(string[] args)
     {
         //1.Memorare
-        Memorare();
+        //Memorare();
+
+        //2.Tabulare
+        Tabulare();
     }
 }
