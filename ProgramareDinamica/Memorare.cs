@@ -12,7 +12,9 @@ namespace ProgramareDinamica
     public class Memorare
     {
 
-        //PROBLEMA 1
+        //PROBLEMA 1 
+        //Scrieti o functie fib(int n) in care trebuie sa retueneze al n- lea numar din Fibocnacci.
+        //Ex: fib(7) = 13
         public int fibRecursiv(int n)
         {
 
@@ -23,54 +25,62 @@ namespace ProgramareDinamica
 
         public long fibDinamic(int n, Dictionary<int, long> map = null)
         {
-            if (map == null) map = new Dictionary<int, long>() { };
-            if (map.ContainsKey(n)) return map[n];
-            if (n <= 2) return 1;
+            if (map == null)
+                map = new Dictionary<int, long>() { };
+            if (map.ContainsKey(n))
+                return map[n];
+            if (n <= 2) 
+                return 1;
             map[n] = fibDinamic(n - 1, map) + fibDinamic(n - 2, map);
             return map[n];
         }
 
         //PROBLEMA 2 
+        //Un calatoar este pe o grila 2d. Incepeti in coltul din stanga sus, iar scopul dvs. este sa calatoriti in cotul din dreapte jos. Va puteti deplase doar
+        //in jos sau la dreapata. Returneti cate trasee poate sa parcurga
+        //Ex: travel(2,3) = 3
         public int travelRecursiv(int n, int m)
         {
             if (n == 1 && m == 1) return 1;
             if (n == 0 || m == 0) return 0;
-            return travelRecursiv(n - 1, m) + travelRecursiv(n, m-1);
+            return travelRecursiv(n - 1, m) + travelRecursiv(n, m - 1);
 
         }
 
-        public long travelDinamic(int n, int m, Dictionary<string,long> map = null)
+        public long travelDinamic(int n, int m, Dictionary<string, long> map = null)
         {
             string key = n.ToString() + "," + m.ToString();
             if (map == null) map = new Dictionary<string, long>();
             if (n == 1 && m == 1) return 1;
             if (n == 0 || m == 0) return 0;
             if (map.ContainsKey(key)) return map[key];
-            map[key] = travelDinamic(n - 1, m) + travelDinamic(n, m - 1);
+            map[key] = travelDinamic(n - 1, m,map) + travelDinamic(n, m - 1,map);
 
             return map[key];
         }
 
         //PROBLEMA 3
+        //Screti o functie canSum(int target, int[] nrs), trebuie sa retureneze un boolean care sa indice daca este sau nu posibil sa se genereze target folosind
+        //numere din matrice. Putem utiliza un elemet al vectorului ori de cate ori este necesar.
         public bool canSumRecursiv(int target, int[] numbers)
         {
 
             if (target == 0) return true;
-            if(target < 0 ) return false;
+            if (target < 0) return false;
 
-            for(int i=0;i<numbers.Length;i++)
+            for (int i = 0; i < numbers.Length; i++)
             {
                 int remainder = target - numbers[i];
-                if(canSumRecursiv(remainder, numbers)) return true;
+                if (canSumRecursiv(remainder, numbers)) return true;
             }
 
             return false;
         }
 
-        public bool canSumDinamic(int target, int[] numbers,Dictionary<int,bool> map = null)
+        public bool canSumDinamic(int target, int[] numbers, Dictionary<int, bool> map = null)
         {
-            if(map == null) { map = new Dictionary<int,bool>();}
-            if(map.ContainsKey(target)) return map[target];
+            if (map == null) { map = new Dictionary<int, bool>(); }
+            if (map.ContainsKey(target)) return map[target];
             if (target == 0) return true;
             if (target < 0) return false;
 
@@ -89,6 +99,8 @@ namespace ProgramareDinamica
         }
 
         //PROBLEMA 4
+        //Scrieti o functie howSum(int target,int[] nrs), trebuie sa returneze un vector care sa contina oricare combinatie de elemente care se aduna exact la
+        //target, astfel null.
         public List<int> howSumRecursiv(int target, int[] numbers)
         {
 
@@ -111,10 +123,10 @@ namespace ProgramareDinamica
             return null;
         }
 
-        public List<int> howSumDinamic(int target, int[] numbers, Dictionary<int,List<int>> map = null)
+        public List<int> howSumDinamic(int target, int[] numbers, Dictionary<int, List<int>> map = null)
         {
-            if(map == null) map = new Dictionary<int,List<int>>();
-            if(map.ContainsKey(target)) return map[target];
+            if (map == null) map = new Dictionary<int, List<int>>();
+            if (map.ContainsKey(target)) return map[target];
             if (target == 0) return [];
             if (target < 0) return null;
 
@@ -137,6 +149,8 @@ namespace ProgramareDinamica
         }
 
         //PROBLEMA 5  
+        //Scrieti o functie bestSum(int target,int[] nrs), trebuie sa returneze un vector care sa contina cea mai scurta oricare combinatie de
+        //elemente care se aduna exact la target, astfel null.
         public List<int> bestSumRecursiv(int target, int[] numbers)
         {
 
@@ -198,21 +212,21 @@ namespace ProgramareDinamica
 
             if (target == "") return true;
 
-            for(int i=0; i < wordBank.Length; i++)
+            for (int i = 0; i < wordBank.Length; i++)
             {
                 if (target.IndexOf(wordBank[i]) == 0)
                 {
                     string sufix = target.Substring(wordBank[i].Length);
-                    if(canConstructRecurisv(sufix, wordBank)) return true;
+                    if (canConstructRecurisv(sufix, wordBank)) return true;
                 }
             }
 
             return false;
         }
 
-        public bool canConstructDinamic(string target, string[] wordBank, Dictionary<string,bool> map = null)
+        public bool canConstructDinamic(string target, string[] wordBank, Dictionary<string, bool> map = null)
         {
-            if(map == null) map = new Dictionary<string, bool>();
+            if (map == null) map = new Dictionary<string, bool>();
             if (map.ContainsKey(target)) return map[target];
             if (target == "") return true;
 
@@ -221,7 +235,7 @@ namespace ProgramareDinamica
                 if (target.IndexOf(wordBank[i]) == 0)
                 {
                     string sufix = target.Substring(wordBank[i].Length);
-                    if (canConstructDinamic(sufix, wordBank,map))
+                    if (canConstructDinamic(sufix, wordBank, map))
                     {
                         map[target] = true;
                         return true;
@@ -246,7 +260,7 @@ namespace ProgramareDinamica
                 if (target.IndexOf(wordBank[i]) == 0)
                 {
                     string sufix = target.Substring(wordBank[i].Length);
-                    ct += countConstructRecurisv(sufix,wordBank);
+                    ct += countConstructRecurisv(sufix, wordBank);
                 }
             }
 
@@ -265,9 +279,9 @@ namespace ProgramareDinamica
                 if (target.IndexOf(wordBank[i]) == 0)
                 {
                     string sufix = target.Substring(wordBank[i].Length);
-                   
-                        map[target] = countConstructDinamic(sufix,wordBank,map);
-                    ct+= map[target];
+
+                    map[target] = countConstructDinamic(sufix, wordBank, map);
+                    ct += map[target];
                 }
             }
 
@@ -305,7 +319,7 @@ namespace ProgramareDinamica
             return result;
         }
 
-       public List<List<string>> allConstructDinamic(string target, string[] wordBank, Dictionary<string,List<List<string>>> map = null)
+        public List<List<string>> allConstructDinamic(string target, string[] wordBank, Dictionary<string, List<List<string>>> map = null)
         {
             if (map == null) map = new Dictionary<string, List<List<string>>>();
             if (map.ContainsKey(target)) return map[target];
@@ -318,7 +332,7 @@ namespace ProgramareDinamica
                 if (target.IndexOf(wordBank[i]) == 0)
                 {
                     string suffix = target.Substring(wordBank[i].Length);
-                    List<List<string>> suffixWays = allConstructDinamic(suffix, wordBank,map);
+                    List<List<string>> suffixWays = allConstructDinamic(suffix, wordBank, map);
 
                     List<List<string>> targetWays = new List<List<string>>();
                     foreach (List<string> way in suffixWays)

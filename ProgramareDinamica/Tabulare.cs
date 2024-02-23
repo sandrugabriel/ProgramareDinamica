@@ -10,6 +10,7 @@ namespace ProgramareDinamica
     {
 
         //PROBLEMA 1
+        //Scrieti o functie fib(int n) in care trebuie sa retueneze al n- lea numar din Fibocnacci.
         public long fibDinamic(int n)
         {
             if (n <= 1)
@@ -20,7 +21,7 @@ namespace ProgramareDinamica
             long[] table = new long[n + 1];
             table[1] = 1;
 
-            for (int i = 0; i <= n; i++)
+            for (int i = 0; i < n; i++)
             {
                 if (i + 1 <= n)
                 {
@@ -37,6 +38,9 @@ namespace ProgramareDinamica
         }
 
         //PROBLEMA 2 
+        //Un calatoar este pe o grila 2d. Incepeti in coltul din stanga sus, iar scopul dvs. este sa calatoriti in cotul din dreapte jos. Va puteti deplase doar
+        //in jos sau la dreapata. Returneti cate trasee poate sa parcurga
+        //Ex: travel(2,3) = 3
         public long travelDinamic(int n, int m)
         {
             long[,] table = new long[m + 1, n + 1];
@@ -64,6 +68,8 @@ namespace ProgramareDinamica
         }
 
         //PROBLEMA 3
+        //Screti o functie canSum(int target, int[] nrs), trebuie sa retureneze un boolean care sa indice daca este sau nu posibil sa se genereze target folosind
+        //numere din matrice. Putem utiliza un elemet al vectorului ori de cate ori este necesar.
         public bool canSumDinamic(int targetSum, int[] numbers)
         {
             bool[] table = new bool[targetSum + 1];
@@ -87,6 +93,8 @@ namespace ProgramareDinamica
         }
 
         //PROBLEMA 4
+        //Scrieti o functie howSum(int target,int[] nrs), trebuie sa returneze un vector care sa contina oricare combinatie de elemente care se aduna exact la
+        //target, astfel null.
         public List<int> howSumDinamic(int targetSum, int[] numbers)
         {
 
@@ -113,6 +121,8 @@ namespace ProgramareDinamica
         }
 
         //PROBLEMA 5  
+        //Scrieti o functie bestSum(int target,int[] nrs), trebuie sa returneze un vector care sa contina cea mai scurta oricare combinatie de
+        //elemente care se aduna exact la target, astfel null.
         public List<int> bestSumDinamic(int targetSum, int[] numbers)
         {
 
