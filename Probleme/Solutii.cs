@@ -176,25 +176,6 @@ Output: [1,1]*/
             }
         }
 
-        //????????
-        /*The Tribonacci sequence Tn is defined as follows: 
-T0 = 0, T1 = 1, T2 = 1, and Tn+3 = Tn + Tn+1 + Tn+2 for n >= 0.
-Given n, return the value of Tn.
-Example 1:
-Input: n = 4
-Output: 4
-Explanation:
-T_3 = 0 + 1 + 1 = 2
-T_4 = 1 + 1 + 2 = 4
-Example 2:
-Input: n = 25
-Output: 1389537*/
-        public void solutia8()
-        {
-            Console.WriteLine(functii.Tribonacci(4));
-        }
-        //????????
-
         /*121. Best Time to Buy and Sell Stock
 You are given an array prices where prices[i] is the price of a given stock on the ith day.
 You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
@@ -477,38 +458,6 @@ The fourth number in the sorted array is 7.*/
             Console.WriteLine(functii.GetKth(lo,hi,k));
         }
 
-        //???
-        /*You are given an integer array cookies, where cookies[i] denotes the number of cookies in the ith bag. You are 
- * also given an integer k that denotes the number of children to distribute all the bags of cookies to. All 
- * the cookies in the same bag must go to the same child and cannot be split up.
-The unfairness of a distribution is defined as the maximum total cookies obtained by a single child in the distribution.
-Return the minimum unfairness of all distributions.
-Example 1:
-
-Input: cookies = [8,15,10,20,8], k = 2
-Output: 31
-Explanation: One optimal distribution is [8,15,8] and [10,20]
-- The 1st child receives [8,15,8] which has a total of 8 + 15 + 8 = 31 cookies.
-- The 2nd child receives [10,20] which has a total of 10 + 20 = 30 cookies.
-The unfairness of the distribution is max(31,30) = 31.
-It can be shown that there is no distribution with an unfairness less than 31.
-Example 2:
-
-Input: cookies = [6,1,3,2,2,4,1,2], k = 3
-Output: 7
-Explanation: One optimal distribution is [6,1], [3,2,2], and [4,1,2]
-- The 1st child receives [6,1] which has a total of 6 + 1 = 7 cookies.
-- The 2nd child receives [3,2,2] which has a total of 3 + 2 + 2 = 7 cookies.
-- The 3rd child receives [4,1,2] which has a total of 4 + 1 + 2 = 7 cookies.
-The unfairness of the distribution is max(7,7,7) = 7.
-It can be shown that there is no distribution with an unfairness less than 7.
-*/
-        public void solutia21()
-        {
-            Console.WriteLine(functii.DistributeCookies([8,15,10,20,8],2));
-        }
-        //???
-
         /*You are given a string s.
 A split is called good if you can split s into two non-empty strings sleft and sright where their concatenation is equal 
 to s (i.e., sleft + sright = s) and the number of distinct letters in sleft and sright is the same.
@@ -704,5 +653,103 @@ Explanation: There is no way to make a positive profit, so we never buy the stoc
         {
             Console.WriteLine(functii.MaxProfit([7, 1, 5, 3, 6, 4]));
         }
+       
+
+        /*The Tribonacci sequence Tn is defined as follows: 
+T0 = 0, T1 = 1, T2 = 1, and Tn+3 = Tn + Tn+1 + Tn+2 for n >= 0.
+Given n, return the value of Tn.
+Example 1:
+Input: n = 4
+Output: 4
+Explanation:
+T_3 = 0 + 1 + 1 = 2
+T_4 = 1 + 1 + 2 = 4
+Example 2:
+Input: n = 25
+Output: 1389537*/
+        public void solutia8()
+        {
+            Console.WriteLine(functii.TribonacciDinamic(30));
+        }
+
+        /*You are given an integer array cookies, where cookies[i] denotes the number of cookies in the ith bag. You are 
+ * also given an integer k that denotes the number of children to distribute all the bags of cookies to. All 
+ * the cookies in the same bag must go to the same child and cannot be split up.
+The unfairness of a distribution is defined as the maximum total cookies obtained by a single child in the distribution.
+Return the minimum unfairness of all distributions.
+Example 1:
+
+Input: cookies = [8,15,10,20,8], k = 2
+Output: 31
+Explanation: One optimal distribution is [8,15,8] and [10,20]
+- The 1st child receives [8,15,8] which has a total of 8 + 15 + 8 = 31 cookies.
+- The 2nd child receives [10,20] which has a total of 10 + 20 = 30 cookies.
+The unfairness of the distribution is max(31,30) = 31.
+It can be shown that there is no distribution with an unfairness less than 31.
+Example 2:
+
+Input: cookies = [6,1,3,2,2,4,1,2], k = 3
+Output: 7
+Explanation: One optimal distribution is [6,1], [3,2,2], and [4,1,2]
+- The 1st child receives [6,1] which has a total of 6 + 1 = 7 cookies.
+- The 2nd child receives [3,2,2] which has a total of 3 + 2 + 2 = 7 cookies.
+- The 3rd child receives [4,1,2] which has a total of 4 + 1 + 2 = 7 cookies.
+The unfairness of the distribution is max(7,7,7) = 7.
+It can be shown that there is no distribution with an unfairness less than 7.
+*/
+        public void solutia21()
+        {
+           Console.WriteLine(functii.DistributeCookies([8, 15, 10], 2));
+        }
+
+
+        /*You have planned some train traveling one year in advance. The days of the year in which you will travel are given as an 
+ * integer array days. Each day is an integer from 1 to 365.
+Train tickets are sold in three different ways:
+a 1-day pass is sold for costs[0] dollars,
+a 7-day pass is sold for costs[1] dollars, and
+a 30-day pass is sold for costs[2] dollars.
+The passes allow that many days of consecutive travel.
+For example, if we get a 7-day pass on day 2, then we can travel for 7 days: 2, 3, 4, 5, 6, 7, and 8.
+Return the minimum number of dollars you need to travel every day in the given list of days.
+Example 1:
+Input: days = [1,4,6,7,8,20], costs = [2,7,15]
+Output: 11*/
+        public void solutia31()
+        {
+            //, costs = [2, 7, 15]
+            Console.WriteLine(functii.MincostTickets([1,2,3,4,5,6,7,8,9,10,30,31], [2,7,15]));
+        }
+
+        /*Given a string expression of numbers and operators, return all possible results from computing all the different possible
+ * ways to group numbers and operators. You may return the answer in any order.
+The test cases are generated such that the output values fit in a 32-bit integer and the number of different results does not exceed 104.
+Example 1:
+Input: expression = "2-1-1"
+Output: [0,2]
+Explanation:
+((2-1)-1) = 0 
+(2-(1-1)) = 2
+Example 2:
+Input: expression = "2*3-4*5"
+Output: [-34,-14,-10,-10,10]
+Explanation:
+(2*(3-(4*5))) = -34 
+((2*3)-(4*5)) = -14 
+((2*(3-4))*5) = -10 
+(2*((3-4)*5)) = -10 
+(((2*3)-4)*5) = 10*/
+        public void solutia32()
+        {
+            foreach (var item in functii.DiffWaysToCompute("2-1-1"))
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+
+
+
+
     }
 }
